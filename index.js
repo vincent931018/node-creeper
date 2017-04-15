@@ -11,7 +11,7 @@ var pageNum = '';
 var answerNum = '';
 
 //要爬取的网页
-var url = "https://www.zhihu.com/people/shelley-lee-94/answers";
+var url = "https://www.zhihu.com/people/caowencheng/answers";
 var urlClone = _.clone(url);
 
 //判断url是http协议还是https协议
