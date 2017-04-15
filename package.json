@@ -1,0 +1,23 @@
+{
+  "name": "node-creeper",
+  "version": "1.0.0",
+  "description": "node-creeper",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "keywords": [
+    "nodejs",
+    "creeper"
+  ],
+  "author": "caowencheng <845982120@qq.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-template": "^4.0.0"
+  }
+}

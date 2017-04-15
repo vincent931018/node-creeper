@@ -1,0 +1,47 @@
+{
+    "author": "Shelley Lee",
+    "answerPageNum": 5,
+    "answerNum": "95",
+    "answers": [
+        {
+            "answerTitle": "想要学CSS应该如何入门？",
+            "answer": "建议先知其然再知其所以然先跟着菜鸟教程 CSS 教程 跟着案例，运行尝试修改，知道一些基本的概念语法，建立兴趣。再系统地看 MDN文档 CSS相关的书籍有《CSS权威指南》（很详细但是有点儿老了）《CSS揭秘》《精通CSS：高级Web标准解决方案》平时可以看看一些…"
+        },
+        {
+            "answerTitle": "算法要怎么学好？",
+            "answer": "良师本科的时候买来《算法导论》来看，大二的时候觉得动归特别牛，于是一遍一遍的看，看了就忘看了就忘，不禁感叹这算法果真牛，看了N多遍都不得其精髓。当时觉得厚厚的一本算法书真心好厚，感觉内容浩瀚地不得了。直到有天遇到了卜神（教算法的一名老师）…"
+        },
+        {
+            "answerTitle": "有哪些关于前端开发技术（HTML、CSS 和 JavaScript 等）的值得推荐的书籍？",
+            "answer": "*”"
+        },
+        {
+            "answerTitle": "大一软件工程专业，未来是否应该考证？",
+            "answer": "四六级 驾照 要考大二学完专业课如果想复习一下可以去考个软考二级。多学技术 多写代码 建立技术栈 丰富简历"
+        },
+        {
+            "answerTitle": "我想学前端开发，现在已经掌握了基本的HTML+CSS，但是JavaScript不知道该怎么学？",
+            "answer": "回答题主问题1. JavaScript说是动作，一是因为可以操作HTML，比如点击按钮可以弹出一个对话框或者改变某些元素的状态这类的；二是因为它是连接前后台的关键，比如网站的注册登录，填写信息之后点击提交的一瞬间，需要将填写的信息提交给后台，这个事情HTML …"
+        },
+        {
+            "answerTitle": "动态规划和贪心的本质区别是什么？",
+            "answer": "刚学习了算法，刚好复习一下。 拿到一个问题，首先要做的是分析，大致分析过程如下图： 这图是算法老师卜课程的精髓，有点儿不清，暂时先搁这儿，等下重新画一下。从图中可以看出分治、动规、贪心三者的关系。分治：对于组合最优化模型，考虑是否可分成独立…"
+        },
+        {
+            "answerTitle": "Ajax不能放在外部引入文件中吗？",
+            "answer": "看简介加群 直接上代码交流"
+        },
+        {
+            "answerTitle": "CSS圆角问题：如图应该怎么写？",
+            "answer": "额 这个需要分成三部分 先占个坑 写下给你回复"
+        },
+        {
+            "answerTitle": "CSS中我使用了position:absolute，怎么让它固定(fixed)，不随滚动条滚动？",
+            "answer": "最简单的，利用CSS3中的position:sticky, 给个链接使用 position:sticky 实现粘性布局"
+        },
+        {
+            "answerTitle": "WEB中这种折线图怎么实现？",
+            "answer": "比较常用的数据可视化库有：D3.js: D3.js - Data-Driven Documentshighcharts： Interactive JavaScript charts for your webpagepiktochart: Create Easy Infographics, Reports, Presentations | Piktochart百度的Echarts: ECharts更多可参考 有哪些值得…"
+        }
+    ]
+}
