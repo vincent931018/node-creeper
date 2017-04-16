@@ -2,6 +2,7 @@ var http = require('http');
 var https = require('https');
 var cheerio = require('cheerio');
 var _ = require('lodash');
+var config = require('./config');
 var fs = require('fs');
 
 //初始化html数据
@@ -9,13 +10,15 @@ var html = '';
 var author = '';
 var pageNum = '';
 var answerNum = '';
+var i = 1;
 
 //要爬取的网页
-var url = "https://www.zhihu.com/people/caowencheng/answers";
+var url = config.url;
 var urlClone = _.clone(url);
 
 //判断url是http协议还是https协议
-var isHttpUrl = function(url, i) {
+var isHttpUrl = function(url,i,pageNum,author,answerNum) {
+    url = urlClone + "?page=" + i;
     if (url.indexOf('https') < 0) {
         //根据url获取数据并筛选出有用信息(http模块)
         http.get(url, function(res) {
@@ -32,6 +35,11 @@ var isHttpUrl = function(url, i) {
                     if (err) console.error(err);
                 });
                 console.log('作者 ' + author + ' 共有回答' + answerNum + '个，回答页数共有' + pageNum + '页且第' + i + '页数据已爬取完毕！');
+                i++;
+                if(i === ((pageNum+1)/1)){
+                    return;
+                }
+                isHttpUrl(url,i,pageNum,author,answerNum);
             });
             //监听数据出错
         }).on('error', function() {
@@ -53,6 +61,11 @@ var isHttpUrl = function(url, i) {
                     if (err) console.error(err);
                 });
                 console.log('作者 ' + author + ' 共有回答 ' + answerNum + ' 个，回答页数共有 ' + pageNum + ' 页且第 ' + i + ' 页数据已爬取完毕！');
+                i++;
+                if(i === ((pageNum+1)/1)){
+                    return;
+                }
+                isHttpUrl(url,i,pageNum,author,answerNum);
             });
             //监听数据出错
         }).on('error', function() {
@@ -68,14 +81,13 @@ var filter = function(html) {
     var lastData = {};
     var answers = [];
     var answerItems = $('.List-item');
-    author = $('.ProfileHeader-name').eq(0).text();
-    answerNum = $('.Tabs-item').find('.Tabs-meta').eq(0).text();
-    pageNum = Math.ceil(answerNum / 20);
 
     answerItems.map(function(item) {
         var answerTitle = $(this).find('.ContentItem-title').text();
         var answer = $(this).find('.CopyrightRichText-richText').text();
+        var answerId = $(this).find('.ContentItem-title').eq(0).find('a').eq(0).attr('href');
         var answerBlock = {
+            answerId : answerId.substring((answerId.length-9),answerId.length),
             answerTitle: answerTitle,
             answer: answer
         };
@@ -90,11 +102,8 @@ var filter = function(html) {
 };
 
 //初始化
-function init(pageNum) {
-    for (var i = 1; i <= pageNum; i++) {
-        url = urlClone + "?page=" + i;
-        isHttpUrl(url, i);
-    };
+function init(pageNum,author,answerNum) {
+    isHttpUrl(url, i,pageNum,author,answerNum);
 };
 
 function getPageNum(url) {
@@ -110,9 +119,10 @@ function getPageNum(url) {
 
             res.on('end', function() {
                 var $ = cheerio.load(html);
+                author = $('.ProfileHeader-name').eq(0).text();
                 answerNum = $('.Tabs-item').find('.Tabs-meta').eq(0).text();
                 pageNum = Math.ceil(answerNum / 20);
-                init(pageNum);
+                init(pageNum,author,answerNum);
             })
         });
 };
